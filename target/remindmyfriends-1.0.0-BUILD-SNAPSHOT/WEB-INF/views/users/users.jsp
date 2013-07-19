@@ -19,6 +19,7 @@ table.myTable td, table.myTable th { border:1px solid black;padding:5px; }
     </style>
   </head>
   <body>
+ 
 
 	 <h2>Registered Users</h2>
 
@@ -56,6 +57,8 @@ table.myTable td, table.myTable th { border:1px solid black;padding:5px; }
 	 <h2>Editor</h2>
     <form id="editPersonForm" method="POST">
       
+      <input type="button" value="New" onclick="newUser();"/>
+    <br/>
       <label for="idInput">Id: </label>
       <input type="text" name="id" id="idInput"size="5px" />
       <br/>
@@ -80,14 +83,23 @@ table.myTable td, table.myTable th { border:1px solid black;padding:5px; }
      	document.getElementById("nameInput").value =document.getElementById("name"+id).innerText; 
      	document.getElementById("emailAddressInput").value =document.getElementById("email"+id).innerText; 
     }
+    function newUser(){
+     	document.getElementById("idInput").value =0; 
+     	document.getElementById("nameInput").value =""; 
+     	document.getElementById("emailAddressInput").value =""; 
+    }
     
     $(document).ready(function() {
         
      
         $('#editPersonForm').submit(function(e) {
           // will pass the form date using the jQuery serialize function
-         
-          var saveUrl = 'http://localhost:8080/remindmyfriends/users/' + document.getElementById("idInput").value + '/';
+         var pathArray = window.location.href.split( '/' );
+		 var protocol = pathArray[0];
+		 var host = pathArray[2];
+		 var baseUrl = protocol + '//' + host;
+ 
+		 var saveUrl = baseUrl + '/remindmyfriends/users/' + document.getElementById("idInput").value + '/';
           var jsonmessage = JSON.stringify($('#editPersonForm').serializeObject());
             $.ajax({
               		type: 'POST',

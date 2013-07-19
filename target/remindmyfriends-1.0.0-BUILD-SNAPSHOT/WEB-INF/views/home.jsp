@@ -3,6 +3,17 @@
 <html>
 <head>
 	<title>Remind My Friends</title>
+	   <style>
+      body { background-color: #eee; font: helvetica; }
+      #container { width: 500px; background-color: #fff; margin: 30px auto; padding: 30px; border-radius: 5px; box-shadow: 5px; }
+      .green { font-weight: bold; color: green; }
+      .message { margin-bottom: 10px; }
+      label { width:70px; display:inline-block;}
+      .hide { display: none; }
+      .error { color: red; font-size: 0.8em; }
+table.myTable { border-collapse:collapse; }
+table.myTable td, table.myTable th { border:1px solid black;padding:5px; }
+    </style>
 </head>
 <body>
 <h1>

@@ -57,7 +57,7 @@
 	
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
-            <value>environment.properties</value>
+            <value>/WEB-INF/spring/environment.properties</value>
         </property>
     </bean>
     
